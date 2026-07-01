@@ -1,7 +1,3 @@
-# ============================================================
-#  Tic-Tac-Toe with Minimax AI
-#  Human = X   AI = O   (AI never loses)
-# ============================================================
 
 # Board is a list of 9 cells: index 0-8
 #   0 | 1 | 2
@@ -78,19 +74,19 @@ def play():
                 move = int(input("Your move (1-9): ")) - 1
                 if 0 <= move <= 8 and board[move] == " ":
                     break
-                print("  ⚠ Invalid — try again.")
+                print("Invalid — try again.")
             except ValueError:
-                print("  ⚠ Enter a number 1-9.")
+                print("Enter a number 1-9.")
         board[move] = "X"
 
         w = winner(board)
         if w:
             print_board(board)
-            print("🎉 You win!" if w == "X" else "🤖 AI wins!")
+            print("You win!" if w == "X" else "AI wins!")
             break
         if is_full(board):
             print_board(board)
-            print("🤝 It's a draw!")
+            print("It's a draw!")
             break
 
         # AI turn
@@ -101,11 +97,11 @@ def play():
         w = winner(board)
         if w:
             print_board(board)
-            print("🤖 AI wins!" if w == "O" else "🎉 You win!")
+            print("AI wins!" if w == "O" else "You win!")
             break
         if is_full(board):
             print_board(board)
-            print("🤝 It's a draw!")
+            print("It's a draw!")
             break
 
     if input("\nPlay again? (y/n): ").strip().lower() == "y":
